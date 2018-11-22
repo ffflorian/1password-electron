@@ -2,6 +2,7 @@
   "author": "Florian Keller <github@floriankeller.de>",
   "description": "Run 1Password everywhere.",
   "devDependencies": {
+    "@types/node": "10.12.10",
     "electron": "3.0.10",
     "electron-builder": "20.36.2",
     "prettier": "1.15.2",

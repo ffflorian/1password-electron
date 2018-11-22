@@ -1,3 +1,4 @@
+import * as path from 'path';
 import {app, BrowserWindow} from 'electron';
 
 const platform = {
@@ -6,7 +7,9 @@ const platform = {
   IS_WINDOWS: process.platform === 'win32',
 };
 
+const APP_PATH = app.getAppPath();
 const BASE_URL = 'https://my.1password.com';
+const ICON_PATH = path.join(APP_PATH, 'resources', 'icon.png');
 
 let mainWindow: BrowserWindow | null = null;
 
@@ -15,6 +18,7 @@ const createWindow = () => {
     autoHideMenuBar: true,
     fullscreen: false,
     height: 750,
+    icon: ICON_PATH,
     width: 1000,
     webPreferences: {
       nodeIntegration: false,

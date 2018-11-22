@@ -2,7 +2,8 @@
   "compilerOptions": {
     "declaration": true,
     "lib": [
-      "es2018"
+      "es2018",
+      "dom"
     ],
     "module": "commonjs",
     "moduleResolution": "node",

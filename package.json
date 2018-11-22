@@ -4,6 +4,7 @@
   "devDependencies": {
     "electron": "3.0.10",
     "electron-builder": "20.36.2",
+    "prettier": "1.15.2",
     "rimraf": "2.6.2",
     "typescript": "3.1.6"
   },
@@ -21,6 +22,7 @@
     "dist:macos": "electron-builder --mac --x64",
     "dist:ts": "yarn clean:ts && yarn build:ts",
     "dist:windows": "electron-builder --win --ia32",
+    "prettier": "prettier --ignore-path .gitignore --write \"src/**/*.ts\"",
     "start": "yarn dist:ts && electron .",
     "test": "exit 0"
   },

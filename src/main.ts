@@ -25,19 +25,18 @@ const createWindow = () => {
   mainWindow.on('closed', () => (mainWindow = null));
 
   mainWindow.loadURL(BASE_URL);
-}
+};
 
-app.on('ready', () => createWindow());
-
-app.on('window-all-closed', () => {
-  app.quit();
-});
-
-app.on('activate', () => {
-  if (mainWindow === null) {
-    createWindow();
-  }
-});
+app
+  .on('activate', () => {
+    if (mainWindow === null) {
+      createWindow();
+    }
+  })
+  .on('ready', () => createWindow())
+  .on('window-all-closed', () => {
+    app.quit();
+  });
 
 if (platform.IS_LINUX) {
   app.disableHardwareAcceleration();

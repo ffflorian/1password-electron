@@ -13,8 +13,13 @@ let mainWindow: BrowserWindow | null = null;
 const createWindow = () => {
   mainWindow = new BrowserWindow({
     autoHideMenuBar: true,
-    height: 600,
-    width: 800,
+    fullscreen: false,
+    height: 750,
+    width: 1000,
+    webPreferences: {
+      nodeIntegration: false,
+      nodeIntegrationInWorker: false,
+    },
   });
 
   mainWindow.on('closed', () => (mainWindow = null));

@@ -21,7 +21,7 @@
     "dist:macos": "electron-builder --mac --x64",
     "dist:ts": "yarn clean:ts && yarn build:ts",
     "dist:windows": "electron-builder --win --ia32",
-    "start": "electron .",
+    "start": "yarn dist:ts && electron .",
     "test": "exit 0"
   },
   "version": "1.0.0"

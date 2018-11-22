@@ -1,0 +1,28 @@
+{
+  "author": "Florian Keller <github@floriankeller.de>",
+  "description": "Run 1Password everywhere.",
+  "devDependencies": {
+    "electron": "3.0.10",
+    "electron-builder": "20.36.2",
+    "rimraf": "2.6.2",
+    "typescript": "3.1.6"
+  },
+  "license": "MIT",
+  "main": "dist/main.js",
+  "name": "1password-electron",
+  "private": true,
+  "readme": "https://github.com/ffflorian/1password-electron#readme",
+  "repository": "https://github.com/ffflorian/1password-electron.git",
+  "scripts": {
+    "build:ts": "tsc",
+    "clean:ts": "rimraf dist",
+    "dist": "yarn dist:ts",
+    "dist:linux": "electron-builder --linux deb --x64",
+    "dist:macos": "electron-builder --mac --x64",
+    "dist:ts": "yarn clean:ts && yarn build:ts",
+    "dist:windows": "electron-builder --win --ia32",
+    "start": "electron .",
+    "test": "exit 0"
+  },
+  "version": "1.0.0"
+}

@@ -1,0 +1,16 @@
+{
+  "appId": "de.ffflorian.1password-electron",
+  "directories": {
+    "output": "wrap/dist"
+  },
+  "linux": {
+    "category": "Utility",
+    "icon": "resources/icons/icon@512x512.png",
+    "target": [
+      {
+        "arch": "x64",
+        "target": "deb"
+      }
+    ]
+  }
+}

@@ -17,12 +17,12 @@
   "repository": "https://github.com/ffflorian/1password-electron.git",
   "scripts": {
     "build:ts": "tsc",
+    "clean": "yarn clean:ts && yarn clean:builder",
     "clean:ts": "rimraf dist",
-    "dist": "yarn dist:ts",
-    "dist:linux": "electron-builder --linux deb --x64",
-    "dist:macos": "electron-builder --mac --x64",
+    "clean:builder": "rimraf wrap",
+    "dist": "yarn clean && yarn dist:ts && yarn dist:linux",
+    "dist:linux": "electron-builder --config electron-builder.config.json",
     "dist:ts": "yarn clean:ts && yarn build:ts",
-    "dist:windows": "electron-builder --win --ia32",
     "prettier": "prettier --ignore-path .gitignore --write \"src/**/*.ts\"",
     "start": "yarn dist:ts && electron .",
     "test": "exit 0"

@@ -9,7 +9,7 @@ const platform = {
 
 const APP_PATH = app.getAppPath();
 const BASE_URL = 'https://my.1password.com';
-const ICON_PATH = path.join(APP_PATH, 'resources', 'icon.png');
+const ICON_PATH = path.join(APP_PATH, 'resources', 'icons', 'icon@128x128.png');
 
 let mainWindow: BrowserWindow | null = null;
 

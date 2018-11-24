@@ -1,16 +1,18 @@
 {
-  "appId": "de.ffflorian.1password-electron",
+  "appId": "de.ffflorian.1password",
   "directories": {
     "output": "wrap/dist"
   },
   "linux": {
+    "asar": false,
     "category": "Utility",
-    "icon": "resources/icons/icon@512x512.png",
+    "icon": "build/icons/png",
     "target": [
       {
         "arch": "x64",
         "target": "deb"
       }
     ]
-  }
+  },
+  "productName": "1Password"
 }

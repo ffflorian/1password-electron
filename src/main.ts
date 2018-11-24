@@ -19,6 +19,7 @@ const createWindow = () => {
     fullscreen: false,
     height: 750,
     icon: ICON_PATH,
+    title: "1Password",
     width: 1000,
     webPreferences: {
       nodeIntegration: false,

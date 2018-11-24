@@ -1,11 +1,6 @@
 import * as path from 'path';
 import {app, BrowserWindow} from 'electron';
-
-const platform = {
-  IS_LINUX: process.platform === 'linux',
-  IS_MAC_OS: process.platform === 'darwin',
-  IS_WINDOWS: process.platform === 'win32',
-};
+import {platform} from './utils';
 
 const APP_PATH = app.getAppPath();
 const BASE_URL = 'https://my.1password.com';
@@ -13,13 +8,15 @@ const ICON_PATH = path.join(APP_PATH, 'resources', 'icons', 'icon@128x128.png');
 
 let mainWindow: BrowserWindow | null = null;
 
+const devtools = process.argv[2] === '--devtools';
+
 const createWindow = () => {
   mainWindow = new BrowserWindow({
     autoHideMenuBar: true,
     fullscreen: false,
     height: 750,
     icon: ICON_PATH,
-    title: "1Password",
+    title: '1Password',
     width: 1000,
     webPreferences: {
       nodeIntegration: false,
@@ -27,9 +24,15 @@ const createWindow = () => {
     },
   });
 
+  mainWindow.webContents.on('will-navigate', url => console.log(url));
+
   mainWindow.on('closed', () => (mainWindow = null));
 
   mainWindow.loadURL(BASE_URL);
+
+  if (devtools) {
+    mainWindow.webContents.openDevTools();
+  }
 };
 
 app

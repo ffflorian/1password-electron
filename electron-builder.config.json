@@ -4,8 +4,11 @@
     "output": "wrap/dist"
   },
   "linux": {
-    "asar": false,
     "category": "Utility",
+    "desktop": {
+      "StartupWMClass": "1Password",
+      "Version": "1.1"
+    },
     "icon": "build/icons/png",
     "target": [
       {
@@ -14,5 +17,36 @@
       }
     ]
   },
-  "productName": "1Password"
+  "mac": {
+    "artifactName": "${name}-mac-${version}.${ext}",
+    "bundleVersion": "1",
+    "category": "public.app-category.utilities",
+    "icon": "build/icons/mac/icon.icns",
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://github.com/ffflorian/1password-electron"
+      }
+    ],
+    "target": [
+      "zip"
+    ]
+  },
+  "nsis": {
+    "deleteAppDataOnUninstall": true
+  },
+  "productName": "1Password",
+  "win": {
+    "artifactName": "${name}-win-${version}.${ext}",
+    "icon": "build/icons/win/icon.ico",
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://github.com/ffflorian/1password-electron"
+      }
+    ],
+    "target": [
+      "nsis"
+    ]
+  }
 }

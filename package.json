@@ -39,7 +39,7 @@
   "scripts": {
     "build:icons": "electron-icon-maker --input=resources/icon@1024x1024.png --output=./build",
     "build:ts": "tsc",
-    "build:linux": "electron-builder --config electron-builder.config.json",
+    "build:linux": "electron-builder --linux --config electron-builder.config.json",
     "clean": "yarn clean:ts && yarn clean:builder",
     "clean:builder": "rimraf build wrap",
     "clean:ts": "rimraf dist",

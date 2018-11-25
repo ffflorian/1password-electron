@@ -1,6 +1,6 @@
 {
   "author": "Florian Keller <github@floriankeller.de>",
-  "description": "Run 1Password everywhere.",
+  "description": "Run 1Password on Linux.",
   "devDependencies": {
     "@types/node": "10.12.10",
     "electron": "3.0.10",
@@ -14,8 +14,8 @@
   "main": "dist/main.js",
   "name": "1password",
   "private": true,
-  "readme": "https://github.com/ffflorian/1password-electron#readme",
-  "repository": "https://github.com/ffflorian/1password-electron.git",
+  "readme": "https://github.com/ffflorian/1password-linux#readme",
+  "repository": "https://github.com/ffflorian/1password-linux.git",
   "scripts": {
     "build:ts": "tsc",
     "build:icons": "electron-icon-maker --input=resources/icon@1024x1024.png --output=./build",

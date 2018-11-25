@@ -25,7 +25,7 @@
     "publish": [
       {
         "provider": "generic",
-        "url": "https://github.com/ffflorian/1password-electron"
+        "url": "https://github.com/ffflorian/1password-linux"
       }
     ],
     "target": [
@@ -42,7 +42,7 @@
     "publish": [
       {
         "provider": "generic",
-        "url": "https://github.com/ffflorian/1password-electron"
+        "url": "https://github.com/ffflorian/1password-linux"
       }
     ],
     "target": [

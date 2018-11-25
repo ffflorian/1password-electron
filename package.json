@@ -6,22 +6,41 @@
     "electron": "3.0.10",
     "electron-builder": "20.36.2",
     "electron-icon-maker": "0.0.4",
+    "husky": "1.2.0",
+    "lint-staged": "8.1.0",
     "prettier": "1.15.2",
     "rimraf": "2.6.2",
+    "tslint-config-prettier": "1.16.0",
+    "tslint-plugin-prettier": "2.0.1",
     "typescript": "3.1.6"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "license": "MIT",
+  "lint-staged": {
+    "*.ts": [
+      "tslint --config tslint.json --project tsconfig.json --fix",
+      "git add"
+    ],
+    "*.{json,md,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "main": "dist/main.js",
   "name": "1password",
   "private": true,
   "readme": "https://github.com/ffflorian/1password-linux#readme",
   "repository": "https://github.com/ffflorian/1password-linux.git",
   "scripts": {
-    "build:ts": "tsc",
     "build:icons": "electron-icon-maker --input=resources/icon@1024x1024.png --output=./build",
+    "build:ts": "tsc",
     "clean": "yarn clean:ts && yarn clean:builder",
-    "clean:ts": "rimraf dist",
     "clean:builder": "rimraf build wrap",
+    "clean:ts": "rimraf dist",
     "dist": "yarn clean && yarn dist:ts && yarn dist:linux",
     "dist:linux": "yarn build:icons && electron-builder --linux --config electron-builder.config.json",
     "dist:ts": "yarn clean:ts && yarn build:ts",

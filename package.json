@@ -39,11 +39,12 @@
   "scripts": {
     "build:icons": "electron-icon-maker --input=resources/icon@1024x1024.png --output=./build",
     "build:ts": "tsc",
+    "build:linux": "electron-builder --config electron-builder.config.json",
     "clean": "yarn clean:ts && yarn clean:builder",
     "clean:builder": "rimraf build wrap",
     "clean:ts": "rimraf dist",
     "dist": "yarn clean && yarn dist:ts && yarn dist:linux",
-    "dist:linux": "yarn build:icons && electron-builder --linux --config electron-builder.config.json",
+    "dist:linux": "yarn build:icons && yarn build:linux",
     "dist:ts": "yarn clean:ts && yarn build:ts",
     "prettier": "prettier --ignore-path .gitignore --write \"src/**/*.ts\"",
     "start": "yarn dist:ts && electron .",

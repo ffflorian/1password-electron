@@ -2,13 +2,17 @@
 
 Run [1Password](https://1password.com) on Linux.
 
+![Screenshot](./screenshot.png)
+
 ## Installation
+
 ```
 yarn
 yarn dist:linux
 ```
 
 ## Local usage
+
 ```
 yarn start
 ```

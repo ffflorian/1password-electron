@@ -3,7 +3,6 @@
   "directories": {
     "output": "wrap/dist"
   },
-  "productName": "1Password",
   "linux": {
     "category": "Utility",
     "desktop": {
@@ -17,5 +16,6 @@
         "target": "deb"
       }
     ]
-  }
+  },
+  "productName": "1Password"
 }

@@ -6,17 +6,25 @@ import {getFocusedWindow} from './utils';
 const querySelectorUsername =
   '#item-details .section-username-password .field.string .value.string .value-container button';
 const querySelectorPassword = '.section-username-password .field.concealed .value.concealed .value-container button';
-const clickButton = (querySelector: string) => `
-  if (b) {
-    b.style['background-color']='#ffffff';
-    b.style.visibility='hidden';
-  }
-  var b=document.querySelectorAll('${querySelector}')[0];
-  if (b) {
-    b.style['background-color']='#51f000';
-    b.style.visibility='visible';
-    b.click();
+const clickButton = (querySelector: string) => {
+  const randomVar = Math.random()
+    .toString(36)
+    .substring(7);
+  return `const ${randomVar} = document.querySelectorAll('${querySelector}')[0];
+  if (${randomVar}) {
+    const originalStyle = {...${randomVar}.style};
+    ${randomVar}.style.backgroundColor = '#51f000';
+    ${randomVar}.style.opacity = '1';
+    ${randomVar}.style.visibility = 'visible';
+    ${randomVar}.style.transition = 'opacity 1s linear';
+    ${randomVar}.style.opacity = '0';
+    ${randomVar}.click();
+    setTimeout(() => {
+      ${randomVar}.style.opacity = '1';
+      ${randomVar}.style = originalStyle;
+    }, 1000);
   }`;
+};
 
 export function registerActions(): void {
   ipcMain.on(ACTION.COPY_PASSWORD, async () => {

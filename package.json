@@ -4,7 +4,7 @@
   "devDependencies": {
     "@types/node": "10.12.10",
     "electron": "3.0.10",
-    "electron-builder": "20.36.2",
+    "electron-builder": "20.38.0",
     "electron-icon-maker": "0.0.4",
     "husky": "1.2.0",
     "lint-staged": "8.1.0",

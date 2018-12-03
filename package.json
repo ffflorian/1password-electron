@@ -2,7 +2,7 @@
   "author": "Florian Keller <github@floriankeller.de>",
   "description": "Run 1Password on Linux.",
   "devDependencies": {
-    "@types/node": "10.12.10",
+    "@types/node": "10.12.11",
     "electron": "3.0.10",
     "electron-builder": "20.38.2",
     "electron-icon-maker": "0.0.4",

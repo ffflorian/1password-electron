@@ -8,7 +8,7 @@ Run [1Password](https://1password.com) on Linux.
 
 ```
 yarn
-yarn dist:linux
+yarn dist
 sudo dpkg -i wrap/dist/1password_*_amd64.deb
 ```
 

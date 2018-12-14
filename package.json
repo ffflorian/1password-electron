@@ -6,7 +6,7 @@
     "electron": "3.0.11",
     "electron-builder": "20.38.3",
     "electron-icon-maker": "0.0.4",
-    "husky": "1.2.0",
+    "husky": "1.2.1",
     "lint-staged": "8.1.0",
     "prettier": "1.15.3",
     "rimraf": "2.6.2",

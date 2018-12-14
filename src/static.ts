@@ -1,15 +1,10 @@
 import {BrowserWindowConstructorOptions, app} from 'electron';
 import * as path from 'path';
 
-enum ACTION {
-  COPY_USERNAME = 'COPY_USERNAME',
-  COPY_PASSWORD = 'COPY_PASSWORD',
-  SHOW_DEVTOOLS = 'SHOW_DEVTOOLS',
-}
-
 const APP_PATH = app.getAppPath();
 const BASE_URL = 'https://my.1password.com';
 const ICON_PATH = path.join(APP_PATH, 'resources', 'icon@128x128.png');
+const PRELOAD_JS = path.join(APP_PATH, 'dist', 'preload.js');
 
 const BrowserWindowOptions: BrowserWindowConstructorOptions = {
   autoHideMenuBar: false,
@@ -20,8 +15,9 @@ const BrowserWindowOptions: BrowserWindowConstructorOptions = {
   webPreferences: {
     nodeIntegration: false,
     nodeIntegrationInWorker: false,
+    preload: PRELOAD_JS,
   },
   width: 1200,
 };
 
-export {ACTION, APP_PATH, BASE_URL, BrowserWindowOptions};
+export {APP_PATH, BASE_URL, BrowserWindowOptions};

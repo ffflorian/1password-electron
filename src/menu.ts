@@ -1,5 +1,5 @@
 import {Menu, MenuItemConstructorOptions, app, globalShortcut, ipcMain} from 'electron';
-import {ACTION} from './static';
+import {ACTION} from './Action';
 
 const fileMenu: MenuItemConstructorOptions = {
   label: '&File',

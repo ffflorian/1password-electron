@@ -1,6 +1,6 @@
 import {ipcMain} from 'electron';
 
-import {ACTION} from './static';
+import {ACTION} from './Action';
 import {getFocusedWindow} from './utils';
 
 const querySelectorUsername =
@@ -32,7 +32,7 @@ export function registerActions(): void {
     if (mainWindow) {
       await mainWindow.webContents.executeJavaScript(clickButton(querySelectorPassword));
     } else {
-      console.log('No main window found when copying password.');
+      console.log('No main window found when trying to copy the password.');
     }
   });
 
@@ -41,7 +41,7 @@ export function registerActions(): void {
     if (mainWindow) {
       await mainWindow.webContents.executeJavaScript(clickButton(querySelectorUsername));
     } else {
-      console.log('No main window found when copying username.');
+      console.log('No main window found when trying to copy the username.');
     }
   });
 

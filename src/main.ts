@@ -1,4 +1,4 @@
-import {BrowserWindow, Menu, app} from 'electron';
+import {BrowserWindow, Menu, app, shell} from 'electron';
 
 import {registerActions} from './actions';
 import * as mainMenu from './menu';
@@ -17,6 +17,11 @@ const createWindow = () => {
   });
   mainWindow.on('focus', () => mainMenu.registerShortcuts());
   mainWindow.on('blur', () => mainMenu.unregisterShortcuts());
+
+  mainWindow.webContents.on('new-window', (event, url) => {
+    event.preventDefault();
+    shell.openExternal(url);
+  });
 
   mainWindow.loadURL(BASE_URL);
 

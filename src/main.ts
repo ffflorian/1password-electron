@@ -1,8 +1,8 @@
-import {BrowserWindow, Menu, app, shell} from 'electron';
+import {BrowserWindow, Menu, app, session, shell} from 'electron';
 
 import {registerActions} from './actions';
 import * as mainMenu from './menu';
-import {BASE_URL, BrowserWindowOptions} from './static';
+import {BASE_URL, BrowserWindowOptions, USER_AGENT} from './static';
 import {platform} from './utils';
 
 let mainWindow: BrowserWindow | null = null;
@@ -22,6 +22,14 @@ const createWindow = () => {
     event.preventDefault();
     shell.openExternal(url);
   });
+
+  const defaultSession = session.defaultSession;
+  if (defaultSession) {
+    defaultSession.webRequest.onBeforeSendHeaders({urls: ['*']}, (details: any, callback: (data: any) => void) => {
+      details.requestHeaders['User-Agent'] = USER_AGENT;
+      callback({cancel: false, requestHeaders: details.requestHeaders});
+    });
+  }
 
   mainWindow.loadURL(BASE_URL);
 

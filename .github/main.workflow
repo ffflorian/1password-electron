@@ -12,20 +12,20 @@ action "Don't skip CI" {
 }
 
 action "Install dependencies" {
-  uses = "docker://node:10-slim"
+  uses = "./.github/actions/node-bzip2"
   needs = "Don't skip CI"
   runs = "yarn"
 }
 
 action "Build project" {
-  uses = "docker://node:10-slim"
+  uses = "./.github/actions/node-bzip2"
   needs = "Install dependencies"
   runs = "yarn"
-  args = "dist"
+  args = "build:ts"
 }
 
 action "Lint project" {
-  uses = "docker://node:10-slim"
+  uses = "./.github/actions/node-bzip2"
   needs = "Install dependencies"
   runs = "yarn"
   args = "lint"

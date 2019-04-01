@@ -21,7 +21,7 @@ action "Build project" {
   uses = "./.github/actions/node-bzip2"
   needs = "Install dependencies"
   runs = "yarn"
-  args = "dist"
+  args = "build:ts"
 }
 
 action "Lint project" {

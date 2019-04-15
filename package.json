@@ -2,6 +2,7 @@
   "author": "Florian Keller <github@floriankeller.de>",
   "description": "Run 1Password on Linux",
   "devDependencies": {
+    "@ffflorian/prettier-config": "0.0.3",
     "@types/node": "11.13.4",
     "electron": "4.1.4",
     "electron-builder": "20.39.0",
@@ -28,13 +29,14 @@
   },
   "main": "dist/main.js",
   "name": "1password",
+  "prettier": "@ffflorian/prettier-config",
   "private": true,
   "readme": "https://github.com/ffflorian/1password-linux#readme",
   "repository": "https://github.com/ffflorian/1password-linux.git",
   "scripts": {
     "build:icons": "electron-icon-maker --input=resources/icon@1024x1024.png --output=./build",
-    "build:ts": "tsc",
     "build:linux": "electron-builder --linux --config electron-builder.config.json",
+    "build:ts": "tsc",
     "clean": "yarn clean:ts && yarn clean:builder",
     "clean:builder": "rimraf build wrap",
     "clean:ts": "rimraf dist",

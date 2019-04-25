@@ -9,7 +9,7 @@ let mainWindow: BrowserWindow | null = null;
 
 const devtools = process.argv[2] === '--devtools';
 
-const createWindow = () => {
+const createWindow = async () => {
   mainWindow = new BrowserWindow(BrowserWindowOptions);
   mainWindow.on('closed', () => {
     mainMenu.unregisterShortcuts();
@@ -18,12 +18,16 @@ const createWindow = () => {
   mainWindow.on('focus', () => mainMenu.registerShortcuts());
   mainWindow.on('blur', () => mainMenu.unregisterShortcuts());
 
-  mainWindow.webContents.on('new-window', (event, url) => {
+  mainWindow.webContents.on('new-window', async (event, url) => {
     event.preventDefault();
-    shell.openExternal(url);
+    try {
+      await shell.openExternal(url);
+    } catch (error) {
+      console.error(error);
+    }
   });
 
-  mainWindow.loadURL(BASE_URL);
+  await mainWindow.loadURL(BASE_URL);
 
   if (devtools) {
     mainWindow.webContents.openDevTools({mode: 'detach'});
@@ -31,15 +35,15 @@ const createWindow = () => {
 };
 
 app
-  .on('activate', () => {
+  .on('activate', async () => {
     if (mainWindow === null) {
-      createWindow();
+      await createWindow();
     }
   })
-  .on('ready', () => {
+  .on('ready', async () => {
     registerActions();
     Menu.setApplicationMenu(mainMenu.menu);
-    createWindow();
+    await createWindow();
   })
   .on('window-all-closed', () => app.quit());
 

@@ -10,6 +10,8 @@ enum ACTION {
 const APP_PATH = app.getAppPath();
 const BASE_URL = 'https://my.1password.com';
 const ICON_PATH = path.join(APP_PATH, 'resources', 'icon@128x128.png');
+const userAgent =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36';
 
 const BrowserWindowOptions: BrowserWindowConstructorOptions = {
   autoHideMenuBar: false,
@@ -24,4 +26,4 @@ const BrowserWindowOptions: BrowserWindowConstructorOptions = {
   width: 1200,
 };
 
-export {ACTION, APP_PATH, BASE_URL, BrowserWindowOptions};
+export {ACTION, APP_PATH, BASE_URL, BrowserWindowOptions, userAgent};

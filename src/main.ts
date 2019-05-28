@@ -1,8 +1,8 @@
-import {BrowserWindow, Menu, app, shell} from 'electron';
+import {BrowserWindow, Menu, app, session, shell} from 'electron';
 
 import {registerActions} from './actions';
 import * as mainMenu from './menu';
-import {BASE_URL, BrowserWindowOptions} from './static';
+import {BASE_URL, BrowserWindowOptions, userAgent} from './static';
 import {platform} from './utils';
 
 let mainWindow: BrowserWindow | null = null;
@@ -27,7 +27,7 @@ const createWindow = async () => {
     }
   });
 
-  await mainWindow.loadURL(BASE_URL);
+  await mainWindow.loadURL(BASE_URL, {userAgent});
 
   if (devtools) {
     mainWindow.webContents.openDevTools({mode: 'detach'});

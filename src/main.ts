@@ -1,4 +1,4 @@
-import {BrowserWindow, Menu, app, session, shell} from 'electron';
+import {BrowserWindow, Menu, app, shell} from 'electron';
 
 import {registerActions} from './actions';
 import * as mainMenu from './menu';

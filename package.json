@@ -3,7 +3,7 @@
   "description": "Run 1Password on Linux",
   "devDependencies": {
     "@ffflorian/prettier-config": "0.0.5",
-    "@ffflorian/tslint-config": "0.3.1",
+    "@ffflorian/tslint-config": "0.4.0",
     "@types/node": "~12",
     "electron": "5.0.6",
     "electron-builder": "20.44.4",

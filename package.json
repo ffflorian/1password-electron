@@ -5,7 +5,7 @@
     "@ffflorian/prettier-config": "0.0.5",
     "@ffflorian/tslint-config": "0.4.0",
     "@types/node": "~12",
-    "electron": "5.0.7",
+    "electron": "5.0.8",
     "electron-builder": "21.0.15",
     "electron-icon-maker": "0.0.4",
     "husky": "3.0.1",
